@@ -1,5 +1,5 @@
 class AddTimestampToPosts < ActiveRecord::Migration[5.0]
   def change
-    add_column :posts, :timestamp, :timestampg
+    add_column :posts, :timestamp
   end
 end
