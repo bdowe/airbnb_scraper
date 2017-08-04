@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  heading: MyString
+  price: 9.99
+  housing: MyString
+  beds: 1
+  reviews: 1
+  timestamp: MyString
+
+two:
+  heading: MyString
+  price: 9.99
+  housing: MyString
+  beds: 1
+  reviews: 1
+  timestamp: MyString

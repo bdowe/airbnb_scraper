@@ -1,0 +1,36 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Heading:</strong>
+    <%= @post.heading %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @post.price %>
+  </p>
+
+  <p>
+    <strong>Housing:</strong>
+    <%= @post.housing %>
+  </p>
+
+  <p>
+    <strong>Beds:</strong>
+    <%= @post.beds %>
+  </p>
+
+  <p>
+    <strong>Reviews:</strong>
+    <%= @post.reviews %>
+  </p>
+
+  <p>
+    <strong>Timestamp:</strong>
+    <%= @post.timestamp %>
+  </p>
+
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
+</div>
