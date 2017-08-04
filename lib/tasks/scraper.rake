@@ -109,15 +109,15 @@ namespace :scraper do
 	  end
 	end
 
-	# name.length.times do |i|
-	#   @post = Post.new
-	#   @post.heading = name[i]
-	#   @post.price = price[i]
-	#   @post.housing = type[i]
-	#   @post.beds = beds[i]
-	#   @post.reviews = reviews[i]
-	#   @post.save
-	# end
+	name.length.times do |i|
+	  @post = Post.new
+	  @post.heading = name[i]
+	  @post.price = price[i]
+	  @post.housing = type[i]
+	  @post.beds = beds[i]
+	  @post.reviews = reviews[i]
+	  @post.save
+	end
   end
 
   desc "TODO"
