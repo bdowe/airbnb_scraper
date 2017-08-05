@@ -109,6 +109,7 @@ namespace :scraper do
 	  end
 	end
 
+
 	name.length.times do |i|
 	  @post = Post.new
 	  @post.heading = name[i]
@@ -116,6 +117,7 @@ namespace :scraper do
 	  @post.housing = type[i]
 	  @post.beds = beds[i]
 	  @post.reviews = reviews[i]
+	  @post.image = image_url[i]
 	  @post.save
 	end
   end

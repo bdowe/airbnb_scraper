@@ -1,0 +1,46 @@
+<div class="filter">
+  <%= form_tag posts_path, method: :get, class: "form-inline" do %>
+    
+    <div class="row">
+      <div class="col-md-4">
+        <%= label_tag :price %>
+      </div>
+      <div class="col-md-2">
+        <%= label_tag :bedrooms %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <%= text_field_tag :min_price, params[:min_price], placeholder: "minimum", class: "form-control input-sm" %>
+        <%= text_field_tag :max_price, params[:max_price], placeholder: "maximum", class: "form-control input-sm" %>
+      </div>
+      <div class="col-md-2">
+        <%= text_field_tag :beds, params[:beds], placeholder: "# of beds", class: "form-control input-sm" %>
+      </div>
+      <div class="col-md-2 col-md-offset-4">
+        <%= submit_tag "Search", name: nil, class: "btn btn-lg btn-primary" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <%= label_tag :type_of_housing %>
+      </div>
+      <div class="col-md-4">
+        <%= label_tag :reviews %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <%= select_tag(:housing, options_for_select(@housing_types, params[:housing]), { include_blank: true, class: "form-control input-sm" }) %>
+      </div>
+      <div class="col-md-4">
+        <%= text_field_tag :min_reviews, params[:min_reviews], placeholder: "minimum", class: "form-control input-sm" %>
+        <%= text_field_tag :max_reviews, params[:max_reviews], placeholder: "maximum", class: "form-control input-sm" %>
+      </div>
+    </div>  
+
+  <% end %>
+</div>

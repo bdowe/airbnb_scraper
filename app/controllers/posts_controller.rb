@@ -1,10 +1,30 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  def home
+    @housing_types = []
+    Post.all.each do |post|
+      @housing_types << post.housing
+    end
+  end
+
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all.paginate(:page => params[:page], :per_page => 30)
+    @posts = @posts.where(beds: params["beds"]) if params["beds"].present?
+    @posts = @posts.where("price >= ?", params["min_price"]) if params["min_price"].present?
+    @posts = @posts.where("price <= ?", params["max_price"]) if params["max_price"].present?
+    #consider moving this so it doesn't run every time index runs
+    @housing_types = []
+    Post.all.each do |post|
+      @housing_types << post.housing
+    end
+    @housing_types.uniq!
+    @posts = @posts.where(housing: params["housing"]) if params["housing"].present?
+    @posts = @posts.where(reviews: params["reviews"]) if params["reviews"].present?
+    @posts = @posts.where("reviews > ?", params["min_reviews"]) if params["min_reviews"].present?
+    @posts = @posts.where("reviews < ?", params["max_reviews"]) if params["max_reviews"].present?
   end
 
   # GET /posts/1
