@@ -17,7 +17,7 @@ namespace :scraper do
 
 	 
 	# Store URL to be scraped
-	url = "https://www.airbnb.com/s/Brooklyn--NY--United-States"
+	url = "https://www.airbnb.com/s/Monterey--CA--United-States"
 	 
 	# Parse the page with Nokogiri
 	page = Nokogiri::HTML(open(url,"User-Agent" => "Ruby/#{RUBY_VERSION}")) 
@@ -43,7 +43,7 @@ namespace :scraper do
 	max_page.times do |i|
 	 
 	  # Open search results page
-	  url = "https://www.airbnb.com/s/Brooklyn--NY--United-States/?section_offset=#{i}"
+	  url = "https://www.airbnb.com/s/Monterey--CA--United-States/?section_offset=#{i}"
 	  page = Nokogiri::HTML(open(url,"User-Agent" => "Ruby/#{RUBY_VERSION}")) 
 
 	  # Store data in arrays
