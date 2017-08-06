@@ -38,6 +38,7 @@ namespace :scraper do
 	beds = []
 	reviews = []
 	image_url = []
+	external_url = []
 	# Loop once for every page of search results
 	max_page.times do |i|
 	 
@@ -108,6 +109,15 @@ namespace :scraper do
 		  line = line[0]
 		  image_url << line
 	  end
+
+	  #Works with multiple pages
+	  page.css('a.anchor_surdeb').each do |line|
+	    line = line.to_s
+	    line = line.split('href="')
+	    line = line[1].split('" target=')
+	    line = "https://www.airbnb.com" + line[0]
+	    external_url << line
+	  end
 	end
 
 
@@ -126,6 +136,7 @@ namespace :scraper do
 	  @post.beds = beds[i]
 	  @post.reviews = reviews[i]
 	  @post.image = image_url[i]
+	  @post.external_url = external_url[i]
 	  @post.save
 	end
   end

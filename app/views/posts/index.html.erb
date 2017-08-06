@@ -29,7 +29,7 @@
                 <%= image_tag post.image, class: "thumbnail" %>
               <% end %>              
             </td>
-            <td style="vertical-align:middle"><%= link_to post.heading, post %></td>
+            <td style="vertical-align:middle"><%= link_to post.heading, post.external_url, target: "_blank" %></td>
             <td class="center" style="vertical-align:middle"><%= number_to_currency(post.price, precision: 0) %></td>
             <td class="center" style="vertical-align:middle"><%= post.housing %></td>
             <td class="center" style="vertical-align:middle"><%= post.beds %></td>
