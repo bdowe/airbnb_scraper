@@ -1,36 +1,23 @@
+<p id="notice"><%= notice %></p>
 <div class="container">
-  <p id="notice"><%= notice %></p>
+  <div class="header">
+    <h3>
+      <%= @post.heading %>
+    </h3>
+  </div>
 
-  <p>
-    <strong>Heading:</strong>
-    <%= @post.heading %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= @post.price %>
-  </p>
-
-  <p>
-    <strong>Housing:</strong>
-    <%= @post.housing %>
-  </p>
-
-  <p>
-    <strong>Beds:</strong>
-    <%= @post.beds %>
-  </p>
-
-  <p>
-    <strong>Reviews:</strong>
-    <%= @post.reviews %>
-  </p>
-
-  <p>
-    <strong>Timestamp:</strong>
-    <%= @post.timestamp %>
-  </p>
-
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-  <%= link_to 'Back', posts_path %>
+  <div class="row">
+    <div class="col-md-7" id="post-images">
+      <%= image_tag @post.image, class: "thumbnail" %>
+    </div>
+    <div class="col-md-5">
+      <div class="info">
+        Price: <%= number_to_currency(@post.price, precision: 0) %><br>
+        Last updated <%= "#{time_ago_in_words(@post.updated_at)} ago" %><br>
+        Type of housing: <%= @post.housing %><br>
+        Bedrooms: <%= @post.beds %><br>
+        Reviews: <%= @post.reviews %>
+      </div>
+    </div>
+  </div>
 </div>

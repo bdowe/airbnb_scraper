@@ -1,12 +1,32 @@
 <div class="filter">
   <%= form_tag posts_path, method: :get, class: "form-inline" do %>
     
+    <!-- Search listings by name and image (next two rows) -->
+    <!-- <div class="row">
+      <div class="col-md-4">
+        <%= label_tag :heading %>
+      </div>
+      <div class="col-md-4">
+        <%= label_tag :image_url %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <%= text_field_tag :heading, params[:heading], placeholder: "Search by name", class: "form-control input-sm" %>
+      </div>
+      <div class="col-md-4">
+        <%= text_field_tag :image, params[:image], placeholder: "Search by image url", class: "form-control input-sm" %>
+      </div>
+    </div> -->
+
+
     <div class="row">
       <div class="col-md-4">
         <%= label_tag :price %>
       </div>
       <div class="col-md-2">
-        <%= label_tag :bedrooms %>
+        <%= label_tag :beds %>
       </div>
     </div>
 

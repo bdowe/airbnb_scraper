@@ -6,12 +6,18 @@ class PostsController < ApplicationController
     Post.all.each do |post|
       @housing_types << post.housing
     end
+    @housing_types.uniq!
   end
 
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all.paginate(:page => params[:page], :per_page => 30)
+    #Search listings by name
+    @posts = @posts.where(heading: params["heading"]) if params["heading"].present?
+    #Search listings by image
+    @posts = @posts.where(image: params["image"]) if params["image"].present?
+    
     @posts = @posts.where(beds: params["beds"]) if params["beds"].present?
     @posts = @posts.where("price >= ?", params["min_price"]) if params["min_price"].present?
     @posts = @posts.where("price <= ?", params["max_price"]) if params["max_price"].present?

@@ -38,7 +38,6 @@ namespace :scraper do
 	beds = []
 	reviews = []
 	image_url = []
-
 	# Loop once for every page of search results
 	max_page.times do |i|
 	 
@@ -63,6 +62,7 @@ namespace :scraper do
 	  price = price.map { |val|
 	  	val.tr('Price$', '')
 	  }
+	  price.delete_if {|s| s == "Fom"}
 
 	  #Works with multiple pages
 	  page.css('span.detailWithoutWrap_j1kt73').each do |line|
@@ -100,6 +100,7 @@ namespace :scraper do
 	    end
 	  }
 
+	  #works with multiple pages
 	  page.css('div.container_e296pg div.image_ay4wjb-o_O-background_1h6n1zu-o_O-fadeIn_3jddj2-o_O-backgroundSize_contain_16d3go2').each do |line|
 		  line = line.to_s
 		  line = line.split('url(')
@@ -110,6 +111,13 @@ namespace :scraper do
 	end
 
 
+	#delete old posts before saving new ones
+		##needs to come after scraping loop,
+		##to minimize the time that the database
+		##is empty.
+	Post.delete_all
+
+	#save new posts to the database
 	name.length.times do |i|
 	  @post = Post.new
 	  @post.heading = name[i]
