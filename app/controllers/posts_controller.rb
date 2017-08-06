@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   def home
     @housing_types = []
     Post.all.each do |post|
-      @housing_types << post.housing
+      @housing_types << post.housing if post.housing.present?
     end
     @housing_types.uniq!
   end
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     #consider moving this so it doesn't run every time index runs
     @housing_types = []
     Post.all.each do |post|
-      @housing_types << post.housing
+      @housing_types << post.housing if post.housing.present?
     end
     @housing_types.uniq!
     @posts = @posts.where(housing: params["housing"]) if params["housing"].present?
