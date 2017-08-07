@@ -39,6 +39,7 @@ namespace :scraper do
 	reviews = []
 	image_url = []
 	external_url = []
+	baths = []
 	# Loop once for every page of search results
 	max_page.times do |i|
 	 
@@ -117,6 +118,17 @@ namespace :scraper do
 	    line = line[1].split('" target=')
 	    line = "https://www.airbnb.com" + line[0]
 	    external_url << line
+
+	    # Open individual listing pages
+	    url = line
+	    page = Nokogiri::HTML(open(url,"User-Agent" => "Ruby/#{RUBY_VERSION}"))
+	    
+	    
+	    page.css('div.col-md-6 div.bottom-spacing-2').each do |line|
+	      if line.include? "Bathrooms"
+	        baths << line.text
+	      end
+	    end 
 	  end
 	end
 
@@ -139,7 +151,7 @@ namespace :scraper do
 	  @post.save
 	end
 
-	puts external_url
+	puts baths
   end
 
   desc "TODO"
