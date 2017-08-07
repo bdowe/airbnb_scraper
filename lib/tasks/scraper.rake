@@ -120,7 +120,6 @@ namespace :scraper do
 	  end
 	end
 
-
 	#delete old posts before saving new ones
 		##needs to come after scraping loop,
 		##to minimize the time that the database
@@ -139,6 +138,8 @@ namespace :scraper do
 	  @post.external_url = external_url[i]
 	  @post.save
 	end
+
+	puts external_url
   end
 
   desc "TODO"
