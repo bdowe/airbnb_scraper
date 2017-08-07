@@ -132,20 +132,20 @@ namespace :scraper do
 	end
 
 
-	baths = []
+	# baths = []
 
-	external_url.length.times do |i|
-	    # # Open individual listing pages
-	    url = external_url[i]
-	    page = Nokogiri::HTML(open(url,"User-Agent" => "Ruby/#{RUBY_VERSION}"))
+	# external_url.length.times do |i|
+	#     # Open individual listing pages
+	#     url = external_url[i]
+	#     page = Nokogiri::HTML(open(url,"User-Agent" => "Ruby/#{RUBY_VERSION}"))
 	    
 	    
-	    page.css('div.col-md-6 div.bottom-spacing-2').each do |line|
-	      if line.include? "Bathrooms"
-	        baths << line.text
-	      end
-	    end 
-	end
+	#     page.css('div.col-md-6 div.bottom-spacing-2').each do |line|
+	#       if line.include? "Bathrooms"
+	#         baths << line.text
+	#       end
+	#     end 
+	# end
 
 	#delete old posts before saving new ones
 		##needs to come after scraping loop,
@@ -166,7 +166,7 @@ namespace :scraper do
 	  @post.save
 	end
 
-	puts baths
+	# puts baths
   end
 
   desc "TODO"
