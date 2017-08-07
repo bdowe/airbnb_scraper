@@ -39,7 +39,6 @@ namespace :scraper do
 	reviews = []
 	image_url = []
 	external_url = []
-	baths = []
 	# Loop once for every page of search results
 	max_page.times do |i|
 	 
@@ -130,6 +129,22 @@ namespace :scraper do
 	    #   end
 	    # end 
 	  end
+	end
+
+
+	baths = []
+
+	external_url.length.times do |i|
+	    # # Open individual listing pages
+	    url = external_url[i]
+	    page = Nokogiri::HTML(open(url,"User-Agent" => "Ruby/#{RUBY_VERSION}"))
+	    
+	    
+	    page.css('div.col-md-6 div.bottom-spacing-2').each do |line|
+	      if line.include? "Bathrooms"
+	        baths << line.text
+	      end
+	    end 
 	end
 
 	#delete old posts before saving new ones
