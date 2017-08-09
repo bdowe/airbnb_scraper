@@ -114,7 +114,7 @@ namespace :scraper do
 	  page.css('a.anchor_surdeb').each do |line|
 	    line = line.to_s
 	    line = line.split('href="')
-	    line = line[1].split('" target=')
+	    line = line[1].split('?location')
 	    line = "https://www.airbnb.com" + line[0]
 	    external_url << line
 
