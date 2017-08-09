@@ -167,7 +167,7 @@ namespace :scraper do
 	  @post.save
 	end
 
-	puts external_url
+	print external_url
 	# puts baths
   end
 
