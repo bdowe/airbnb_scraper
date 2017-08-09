@@ -153,7 +153,7 @@ namespace :scraper do
 	# 	##needs to come after scraping loop,
 	# 	##to minimize the time that the database
 	# 	##is empty.
-	# Post.delete_all
+	Post.delete_all
 
 	#save new posts to the database
 	name.length.times do |i|
