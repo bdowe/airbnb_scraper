@@ -146,7 +146,7 @@ namespace :scraper do
 	        baths << line.text
 	      end
 	    end 
-	# end
+	end
 
 	# #delete old posts before saving new ones
 	# 	##needs to come after scraping loop,
