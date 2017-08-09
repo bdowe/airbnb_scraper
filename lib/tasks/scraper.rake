@@ -134,10 +134,10 @@ namespace :scraper do
 
 	baths = []
 
-	# external_url.length.times do |i|
-	    # Open individual listing pages
-	    # url = external_url[i]
-	    url = "https://www.airbnb.com/rooms/16664017?location=Brooklyn%2C%20NY%2C%20United%20States"
+	external_url.length.times do |i|
+	    Open individual listing pages
+	    url = external_url[i]
+	    #url = "https://www.airbnb.com/rooms/16664017?location=Brooklyn%2C%20NY%2C%20United%20States"
 
 	    page = Nokogiri::HTML(open(url,"User-Agent" => "Ruby/#{RUBY_VERSION}"))
 	    
@@ -147,7 +147,7 @@ namespace :scraper do
 	        baths << line.text
 	      end
 	    end 
-	# end
+	end
 
 	# #delete old posts before saving new ones
 	# 	##needs to come after scraping loop,
