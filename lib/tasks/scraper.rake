@@ -155,18 +155,18 @@ namespace :scraper do
 	# 	##is empty.
 	# Post.delete_all
 
-	# #save new posts to the database
-	# name.length.times do |i|
-	#   @post = Post.new
-	#   @post.heading = name[i]
-	#   @post.price = price[i]
-	#   @post.housing = type[i]
-	#   @post.beds = beds[i]
-	#   @post.reviews = reviews[i]
-	#   @post.image = image_url[i]
-	#   @post.external_url = external_url[i]
-	#   @post.save
-	# end
+	#save new posts to the database
+	name.length.times do |i|
+	  @post = Post.new
+	  @post.heading = name[i]
+	  @post.price = price[i]
+	  @post.housing = type[i]
+	  @post.beds = beds[i]
+	  @post.reviews = reviews[i]
+	  @post.image = image_url[i]
+	  @post.external_url = external_url[i]
+	  @post.save
+	end
 
 	puts external_url
   end
