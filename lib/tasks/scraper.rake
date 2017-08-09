@@ -136,8 +136,8 @@ namespace :scraper do
 
 	# external_url.length.times do |i|
 	    #Open individual listing pages
-	    # url = external_url[i]
-	    url = "https://www.airbnb.com/rooms/16664017"
+	    url = external_url[0]
+	    #url = "https://www.airbnb.com/rooms/16664017"
 	    page = Nokogiri::HTML(open(url,"User-Agent" => "Ruby/#{RUBY_VERSION}"))
 	    
 	    
