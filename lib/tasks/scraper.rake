@@ -39,6 +39,7 @@ namespace :scraper do
 	reviews = []
 	image_url = []
 	external_url = []
+	baths = []
 	# Loop once for every page of search results
 	max_page.times do |i|
 	 
@@ -132,11 +133,10 @@ namespace :scraper do
 	end
 
 
-	baths = []
 
-	external_url.length.times do |i|
+	external_url.each do |string|
 	    #Open individual listing pages
-	    url = external_url[i]
+	    url = string
 	    #url = "https://www.airbnb.com/rooms/16664017"
 	    page = Nokogiri::HTML(open(url,"User-Agent" => "Ruby/#{RUBY_VERSION}"))
 	    
